@@ -1,5 +1,5 @@
-import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
-import { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from "react";
+import { Renderer, Triangle, Program, Mesh, Color } from "ogl";
 
 import './Aurora.scss';
 
