@@ -1,0 +1,27 @@
+.primary-button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 14px;
+  background-color: #2e80e4;
+  color: #eae1ff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.secondary-button {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: 14px;
+  background-color: #f1f8ff22;
+  color: #eae1ff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  outline: none;
+}

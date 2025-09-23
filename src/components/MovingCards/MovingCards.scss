@@ -1,0 +1,72 @@
+.scroller {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.scroller ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  white-space: nowrap;
+
+  width: max-content;
+}
+
+.moving-card {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 1.2rem;
+  border-radius: 1.25rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+
+  img {
+    width: 140px;
+    height: 140px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .card-texts {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+
+    .subtitle {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      text-align: left;
+    }
+
+    .description {
+      font-size: 0.9rem;
+      padding-top: 0.25rem;
+      color: #aaa;
+      white-space: normal;
+      word-wrap: break-word;
+      text-align: left;
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-horizontal var(--animation-duration, 40s) linear infinite;
+  animation-direction: var(--animation-direction, forwards);
+}

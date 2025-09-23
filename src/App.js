@@ -2,8 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 import "./scss/labels.scss";
-import Aurora from "./components/AuroraBG/Aurora";
-import Home from "./components/Home";
+import Home from "./pages/home/Home";
 import Simulador from "./components/Simulador";
 
 export default function App() {
