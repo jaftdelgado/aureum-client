@@ -3,37 +3,50 @@ import { InfiniteMovingCards } from "../../components/MovingCards/MovingCards";
 import { tradingCandle, eduCourse, profit, bitcoin } from "../../assets";
 import "./Home.scss";
 import "./../../scss/buttons.scss";
+import { useState } from "react";
 
 export default function Home() {
+  const [apiMessage, setApiMessage] = useState("");
+
+  const handleClick = async () => {
+  try {
+    const res = await fetch("http://localhost:5189/api/hello");
+    if (!res.ok) throw new Error("Error en la API");
+    const data = await res.json();
+    setApiMessage(data.message);
+  } catch (err) {
+    console.error(err);
+    setApiMessage("No se pudo conectar con la API");
+  }
+};
+
   return (
     <div>
-      {" "}
       <div className="custom-box">
-        {" "}
         <Aurora
           colorStops={["#180C70", "#FF00E6", "#6E00FF"]}
           blend={0.5}
           amplitude={0.3}
           speed={0.9}
-        />{" "}
+        />
         <div className="custom-content">
-          {" "}
-          <h2 className="header-label">
-            Tu primera inversión comienza aquí.
-          </h2>{" "}
+          <h2 className="header-label">Tu primera inversión comienza aquí.</h2>
           <h3 className="subtitle-label">
-            {" "}
-            Simula operaciones en tiempo real sin ningún riesgo.{" "}
-          </h3>{" "}
+            Simula operaciones en tiempo real sin ningún riesgo.
+          </h3>
           <div className="button-row">
-            {" "}
-            <button className="primary-button">Comenzar</button>{" "}
-            <button className="secondary-button">Aprender más</button>{" "}
-          </div>{" "}
-        </div>{" "}
-      </div>{" "}
+            <button className="primary-button" onClick={handleClick}>
+              Comenzar
+            </button>
+            <button className="secondary-button">Aprender más</button>
+          </div>
+          {apiMessage && (
+            <p style={{ marginTop: "1rem", color: "#fff" }}>{apiMessage}</p>
+          )}
+        </div>
+      </div>
+
       <div className="cards-section">
-        {" "}
         <InfiniteMovingCards
           items={[
             {
@@ -63,8 +76,8 @@ export default function Home() {
           ]}
           direction="left"
           speed="normal"
-        />{" "}
-      </div>{" "}
+        />
+      </div>
     </div>
   );
 }
